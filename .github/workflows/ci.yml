@@ -72,18 +72,18 @@ jobs:
         uses: docker/setup-buildx-action@v2
       
       - name: Build Docker images
-        run: docker-compose build
+        run: docker compose build
       
       - name: Verify Docker compose
         run: |
-          docker-compose up -d
+          docker compose up -d
           sleep 30  # Give time for containers to start
-          docker-compose ps
-          docker-compose logs
+          docker compose ps
+          docker compose logs
           # Check if containers are running
-          if [ "$(docker-compose ps --services --filter "status=running" | wc -l)" -lt 3 ]; then
+          if [ "$(docker compose ps --services --filter "status=running" | wc -l)" -lt 3 ]; then
             echo "Not all services are running"
-            docker-compose down
+            docker compose down
             exit 1
           fi
-          docker-compose down
+          docker compose down
