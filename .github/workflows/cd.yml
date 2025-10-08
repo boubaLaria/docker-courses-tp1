@@ -47,7 +47,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: ${{ secrets.DOCKERHUB_USERNAME }}/persons-frontend
           short-description: "Frontend de l'application Persons Management"
-          readme-filepath: ./frontend/README.md
+          readme-filepath: ./README.md
       
       - name: Docker Hub Description for Backend
         uses: peter-evans/dockerhub-description@v3
@@ -56,4 +56,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: ${{ secrets.DOCKERHUB_USERNAME }}/persons-backend
           short-description: "API Backend de l'application Persons Management"
-          readme-filepath: ./backend/README.md
+          readme-filepath: ./README.md
