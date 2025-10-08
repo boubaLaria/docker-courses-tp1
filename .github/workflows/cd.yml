@@ -39,21 +39,4 @@ jobs:
           context: ./backend
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/persons-backend:latest,${{ secrets.DOCKERHUB_USERNAME }}/persons-backend:${{ github.sha }}
-      
-      - name: Docker Hub Description
-        uses: peter-evans/dockerhub-description@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: ${{ secrets.DOCKERHUB_USERNAME }}/persons-frontend
-          short-description: "Frontend de l'application Persons Management"
-          readme-filepath: ./README.md
-      
-      - name: Docker Hub Description for Backend
-        uses: peter-evans/dockerhub-description@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: ${{ secrets.DOCKERHUB_USERNAME }}/persons-backend
-          short-description: "API Backend de l'application Persons Management"
-          readme-filepath: ./README.md
+
